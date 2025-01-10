@@ -1,0 +1,81 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.boxed_wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h3 {
+    color: #175f73;
+    text-align: center;
+}
+
+a {
+    color: #175f73;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: #f85a3e;
+}
+
+button {
+    background-color: #175f73;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #f85a3e;
+}
+
+/* Form Styling */
+.sign-up-form {
+    padding: 50px 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #175f73;
+    box-shadow: 0 0 5px rgba(23, 95, 115, 0.5);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Modal Styling */
+.modal-header, .modal-footer {
+    background-color: #175f73;
+    color: #fff;
+}
+
+.modal-body {
+    font-size: 14px;
+    color: #333;
+}
