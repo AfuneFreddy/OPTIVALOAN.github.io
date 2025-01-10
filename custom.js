@@ -1,21 +1,21 @@
-// Add custom JavaScript for form validation and interactivity
 document.addEventListener('DOMContentLoaded', () => {
-    // Form validation
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (e) => {
-        const phoneNumber = form.querySelector('input[name="phone_number"]');
-        if (!phoneNumber.value.match(/^07[0-9]{8}$/)) {
-            alert("Please enter a valid MPESA phone number (e.g., 0712345678).");
-            e.preventDefault();
-        }
+    // Get elements for links and content
+    const termsLink = document.getElementById('terms-link');
+    const privacyLink = document.getElementById('privacy-link');
+    const termsContent = document.getElementById('terms-content');
+    const privacyContent = document.getElementById('privacy-content');
+
+    // Toggle Terms and Conditions
+    termsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        termsContent.style.display = termsContent.style.display === 'none' || termsContent.style.display === '' ? 'block' : 'none';
+        privacyContent.style.display = 'none'; // Hide privacy content if open
     });
 
-    // Modal close events (optional)
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach((modal) => {
-        const closeButton = modal.querySelector('.btn-close');
-        closeButton.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
+    // Toggle Privacy Policy
+    privacyLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        privacyContent.style.display = privacyContent.style.display === 'none' || privacyContent.style.display === '' ? 'block' : 'none';
+        termsContent.style.display = 'none'; // Hide terms content if open
     });
 });
