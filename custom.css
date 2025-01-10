@@ -25,16 +25,14 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.8); /* Transparent white background */
-    padding: 20px;
-    border-radius: 10px;
+    gap: 20px;
 }
 
 /* Left Section */
 .left-section {
     flex: 1;
     padding: 20px;
-    color: #333;
+    color: #ffffff;
     text-align: left;
 }
 
@@ -52,6 +50,9 @@ body, html {
 /* Right Section */
 .right-section {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-container {
@@ -59,6 +60,8 @@ body, html {
     border-radius: 8px;
     padding: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
 }
 
 .form-container h3 {
@@ -124,6 +127,16 @@ body, html {
 
 .policy-text a:hover {
     text-decoration: underline;
+}
+
+/* Hidden Policy Content */
+.policy-content {
+    display: none;
+    margin-top: 20px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Design */
