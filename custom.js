@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle Terms and Conditions
     termsLink.addEventListener('click', (e) => {
         e.preventDefault();
-        termsContent.style.display = termsContent.style.display === 'none' || termsContent.style.display === '' ? 'block' : 'none';
+        termsContent.style.display = termsContent.style.display === 'block' ? 'none' : 'block';
         privacyContent.style.display = 'none'; // Hide privacy content if open
     });
 
     // Toggle Privacy Policy
     privacyLink.addEventListener('click', (e) => {
         e.preventDefault();
-        privacyContent.style.display = privacyContent.style.display === 'none' || privacyContent.style.display === '' ? 'block' : 'none';
+        privacyContent.style.display = privacyContent.style.display === 'block' ? 'none' : 'block';
         termsContent.style.display = 'none'; // Hide terms content if open
     });
 });
