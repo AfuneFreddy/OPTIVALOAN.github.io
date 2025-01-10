@@ -14,108 +14,82 @@
 </head>
 
 <body>
-    <div class="main-container">
+    <div class="overlay">
         <!-- Left Section -->
-        <div class="left-section">
-            <div class="brand">
+        <div class="content-container">
+            <div class="left-section">
                 <h1>Optiva Loans</h1>
                 <p>Let us help you sort your expenses - top up a loan, rental loan, car loan, or emergencies.</p>
             </div>
-            <!-- Updated Image Path -->
-            <img src="images/pexels-cytonn-955395.jpg" alt="Loan Approved" class="banner-img">
-        </div>
 
-        <!-- Right Section: Form -->
-        <div class="right-section">
-            <div class="form-container">
-                <h3>Find Your Loan Eligibility</h3>
-                <p class="sub-text">You can qualify for Ksh. 2,500 - 15,000 loan to MPESA</p>
+            <!-- Right Section -->
+            <div class="right-section">
+                <div class="form-container">
+                    <h3>Find Your Loan Eligibility</h3>
+                    <p class="sub-text">You can qualify for Ksh. 2,500 - 15,000 loan to MPESA</p>
 
-                <form action="https://optivaloan.co.ke/loan-application/save" method="POST">
-                    <input type="hidden" name="_token" value="GeDHtvL0ZDI2rcjzuEFnlNWTJFYunQTnFZq5rkQP">
+                    <form action="https://optivaloan.co.ke/loan-application/save" method="POST">
+                        <input type="hidden" name="_token" value="GeDHtvL0ZDI2rcjzuEFnlNWTJFYunQTnFZq5rkQP">
 
-                    <div class="form-group">
-                        <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
-                        <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                        <div class="form-group">
+                            <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone_number" class="form-control" pattern="[0-9]{10}" placeholder="Mpesa Phone Number: 0718******" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="id_number" class="form-control" placeholder="National ID Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="loan_type_id" class="form-control" required>
+                                <option value="">Select Loan Type</option>
+                                <option value="4">Car Loan</option>
+                                <option value="1">Education Loan</option>
+                                <option value="2">Emergency Loan</option>
+                                <option value="3">Rental Loan</option>
+                            </select>
+                        </div>
+
+                        <p class="info-text">No CRB Check. No Guarantors. Disbursed to MPESA. No Paperwork.</p>
+                        <button type="submit" class="btn-submit">Find Your Loan Eligibility</button>
+
+                        <p class="policy-text">
+                            By submitting, you confirm that you accept the
+                            <a href="#" id="terms-link">Terms and Conditions</a> and
+                            <a href="#" id="privacy-link">Privacy Policy</a>.
+                        </p>
+                    </form>
+
+                    <!-- Terms and Conditions Section -->
+                    <div class="policy-content" id="terms-content">
+                        <h4>Terms and Conditions</h4>
+                        <p>Loan facilities borrowed under this product will be hinged on pre-existing product features.</p>
+                        <p>In case of default, the loan product facility shall be deemed to be in arrears, and normal collection processes shall apply.</p>
+                        <p>The maximum loan amount is Ksh. 15,000. A non-refundable fee of Ksh. 95 is paid by the borrower for detail verification.</p>
+                        <p>Loan duration: repayable within 30 days from the day of borrowing.</p>
+                        <p>Loan disbursement: Loan will be disbursed to the MPESA number provided and takes 5-7 working days to process.</p>
                     </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone_number" class="form-control" pattern="[0-9]{10}" placeholder="Mpesa Phone Number: 0718******" required>
+
+                    <!-- Privacy Policy Section -->
+                    <div class="policy-content" id="privacy-content">
+                        <h4>Privacy Policy</h4>
+                        <p>We care about your privacy, data protection, and confidentiality. This Privacy Policy outlines the information we collect, the purposes for which we collect it, and your rights.</p>
+                        <ul>
+                            <li>You use or have expressed the intention to use any of our services.</li>
+                            <li>You represent a client (e.g., as a guarantor, payer, or authorized representative).</li>
+                            <li>You have used our services in the past, and we are required to retain this information.</li>
+                            <li>You contact us or visit any of our customer service offices.</li>
+                            <li>You visit our website or provide personal data for any of the data processing purposes outlined in this policy.</li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <input type="number" name="id_number" class="form-control" placeholder="National ID Number" required>
-                    </div>
-                    <div class="form-group">
-                        <select name="loan_type_id" class="form-control" required>
-                            <option value="">Select Loan Type</option>
-                            <option value="4">Car Loan</option>
-                            <option value="1">Education Loan</option>
-                            <option value="2">Emergency Loan</option>
-                            <option value="3">Rental Loan</option>
-                        </select>
-                    </div>
-
-                    <p class="info-text">No CRB Check. No Guarantors. Disbursed to MPESA. No Paperwork.</p>
-                    <button type="submit" class="btn-submit">Find Your Loan Eligibility</button>
-
-                    <p class="policy-text">
-                        By submitting, you confirm that you accept the
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a> and
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>.
-                    </p>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Terms and Conditions Modal -->
-    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Loan facilities borrowed under this product will be hinged on pre-existing product features.</p>
-                    <p>In case of default, the loan product facility shall be deemed to be in arrears, and normal collection processes shall apply.</p>
-                    <p>The maximum loan amount is Ksh. 15,000. A non-refundable fee of Ksh. 95 is paid by the borrower for detail verification.</p>
-                    <p>Loan duration: repayable within 30 days from the day of borrowing.</p>
-                    <p>Loan disbursement: Loan will be disbursed to the MPESA number provided and takes 5-7 working days to process.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>We care about your privacy, data protection, and confidentiality. This Privacy Policy outlines the information we collect, the purposes for which we collect it, and your rights.</p>
-                    <ul>
-                        <li>You use or have expressed the intention to use any of our services.</li>
-                        <li>You represent a client (e.g., as a guarantor, payer, or authorized representative).</li>
-                        <li>You have used our services in the past, and we are required to retain this information.</li>
-                        <li>You contact us or visit any of our customer service offices.</li>
-                        <li>You visit our website or provide personal data for any of the data processing purposes outlined in this policy.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="custom.js"></script>
 </body>
 
 </html>
