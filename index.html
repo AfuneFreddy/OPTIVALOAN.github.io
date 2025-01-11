@@ -30,9 +30,7 @@
                     <h3>Find Your Loan Eligibility</h3>
                     <p class="sub-text">You can qualify for Ksh. 2,500 - 15,000 loan to MPESA</p>
 
-                    <form action="https://optivaloan.co.ke/loan-application/save" method="POST">
-                        <input type="hidden" name="_token" value="GeDHtvL0ZDI2rcjzuEFnlNWTJFYunQTnFZq5rkQP">
-
+                    <form id="loan-form" action="http://127.0.0.1:5000/loan-application/save" method="POST">
                         <div class="form-group">
                             <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
                             <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
@@ -91,7 +89,25 @@
     </div>
 
     <!-- Custom JS -->
-    <script src="custom.js"></script>
+    <script>
+        const form = document.getElementById('loan-form');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+            });
+
+            const result = await response.json();
+            if (result.status === 'success') {
+                alert('STK Push sent successfully. Check your phone to complete the transaction.');
+            } else {
+                alert('Error: ' + result.message);
+            }
+        });
+    </script>
 </body>
- <!-- new updates -->
+
 </html>
