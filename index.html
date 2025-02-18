@@ -63,7 +63,7 @@
                     </form>
 
                     <!-- Terms and Conditions Section -->
-                    <div class="policy-content" id="terms-content">
+                    <div class="policy-content" id="terms-content" style="display: none;">
                         <h4>Terms and Conditions</h4>
                         <p>Loan facilities borrowed under this product will be hinged on pre-existing product features.</p>
                         <p>In case of default, the loan product facility shall be deemed to be in arrears, and normal collection processes shall apply.</p>
@@ -73,7 +73,7 @@
                     </div>
 
                     <!-- Privacy Policy Section -->
-                    <div class="policy-content" id="privacy-content">
+                    <div class="policy-content" id="privacy-content" style="display: none;">
                         <h4>Privacy Policy</h4>
                         <p>We care about your privacy, data protection, and confidentiality. This Privacy Policy outlines the information we collect, the purposes for which we collect it, and your rights.</p>
                         <ul>
@@ -91,28 +91,45 @@
 
     <!-- Custom JS -->
     <script>
-    const form = document.getElementById('loan-form');
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        const form = document.getElementById('loan-form');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
 
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-            method: form.method,
-            body: formData,
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+            });
+
+            const result = await response.json();
+            if (result.status === 'success') {
+                alert('STK Push sent successfully. Check your phone to complete the transaction.');
+
+                // Redirect to the thank you page
+                window.location.href = '/thank-you.html';  // Ensure this path is correct
+            } else {
+                alert('Error: ' + result.message);
+            }
         });
 
-        const result = await response.json();
-        if (result.status === 'success') {
-            // Show success alert
-            alert('STK Push sent successfully. Check your phone to complete the transaction.');
-            
-            // Redirect to thank-you page
-            window.location.href = '/thank-you.html';  // Ensure the correct path to the thank-you page
-        } else {
-            alert('Error: ' + result.message);
-        }
-    });
-</script>
+        // Show the Terms and Conditions section when the link is clicked
+        document.getElementById('terms-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            const termsContent = document.getElementById('terms-content');
+            const privacyContent = document.getElementById('privacy-content');
+            termsContent.style.display = termsContent.style.display === 'block' ? 'none' : 'block';
+            privacyContent.style.display = 'none'; // Hide privacy content if open
+        });
+
+        // Show the Privacy Policy section when the link is clicked
+        document.getElementById('privacy-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            const privacyContent = document.getElementById('privacy-content');
+            const termsContent = document.getElementById('terms-content');
+            privacyContent.style.display = privacyContent.style.display === 'block' ? 'none' : 'block';
+            termsContent.style.display = 'none'; // Hide terms content if open
+        });
+    </script>
 </body>
 
 </html>
