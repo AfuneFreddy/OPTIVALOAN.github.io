@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You</title>
-    <link rel="stylesheet" href="custom.css"> <!-- Link your CSS file here -->
+    <link rel="stylesheet" href="custom.css"> <!-- Link to your external CSS -->
     <style>
-        /* Centering the content */
+        /* General styling */
         body, html {
             height: 100%;
             margin: 0;
@@ -17,31 +17,28 @@
             background-color: #f4f4f4;
         }
 
+        /* Main Thank You Container */
         .thank-you-container {
             text-align: center;
-            background-color: white;
+            width: 80%;
+            max-width: 600px;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
+            background: url('images/thankyou.jpg') no-repeat center center/cover; /* Background image */
+            color: white;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
         }
 
         .thank-you-container h1 {
             font-size: 2.5em;
-            color: #2ecc71; /* Green color for the thank you text */
+            margin-bottom: 20px;
         }
 
         .thank-you-container p {
             font-size: 1.2em;
-            color: #555;
-        }
-
-        .thank-you-image img {
-            width: 100%;
-            max-width: 500px;
-            margin-top: 30px;
-            border-radius: 10px;
+            margin-bottom: 30px;
         }
 
         .thank-you-container a {
@@ -53,6 +50,14 @@
         .thank-you-container a:hover {
             text-decoration: underline;
         }
+
+        /* Optional Styling for Image */
+        .thank-you-container img {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -61,7 +66,7 @@
         <h1>Thank You for Your Application!</h1>
         <p>Your loan application has been successfully submitted.</p>
         
-        <!-- Image Section -->
+        <!-- Optional Image Section (if you want to display an image separately as well) -->
         <div class="thank-you-image">
             <img src="images/thankyou.jpg" alt="Thank You Image" />
         </div>
