@@ -1,25 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get elements for links and content
-    const termsLink = document.getElementById('terms-link');
-    const privacyLink = document.getElementById('privacy-link');
-    const termsContent = document.getElementById('terms-content');
-    const privacyContent = document.getElementById('privacy-content');
-
-    // Toggle Terms and Conditions
-    termsLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        termsContent.style.display = termsContent.style.display === 'block' ? 'none' : 'block';
-        privacyContent.style.display = 'none'; // Hide privacy content if open
-    });
-
-    // Toggle Privacy Policy
-    privacyLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        privacyContent.style.display = privacyContent.style.display === 'block' ? 'none' : 'block';
-        termsContent.style.display = 'none'; // Hide terms content if open
-    });
-
-    // Handle Form Submission
     const form = document.getElementById('loan-form');
     form.addEventListener('submit', async (event) => {
         event.preventDefault();  // Prevent default form submission
@@ -44,13 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();  // Parse JSON response
 
             if (result.status === 'success') {
-                // Redirect to a new page after success
+                // Log for debugging
+                console.log("Success: ", result.message);
+                
+                // Show a success message before redirect
+                alert('Loan application received successfully.');
+                
+                // Redirect to a new page
                 window.location.href = "/thank-you.html";  // Replace with your desired URL
-
-                // Clear the form fields
-                form.reset();
             } else {
-                // Handle error response
+                // Show error message
                 alert('Error: ' + result.message);
             }
         } catch (error) {
