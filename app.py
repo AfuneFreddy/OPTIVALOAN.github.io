@@ -56,7 +56,10 @@ def save_loan_application():
     db.session.add(new_application)
     db.session.commit()
 
-    return jsonify({"status": "success", "message": "Loan application received and stored in the database"}), 200
+    print(f"Loan application received: {first_name} {last_name}, Phone: {phone_number}")  # Debug message
+
+    # Send a success response
+    return jsonify({"status": "success", "message": "Loan application successfully submitted."}), 200
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
