@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (result.status === 'success') {
                 // Redirect to a new page after success
                 window.location.href = "/thank-you.html";  // Replace with your desired URL
+
+                // Clear the form fields
+                form.reset();
             } else {
                 // Handle error response
                 alert('Error: ' + result.message);
