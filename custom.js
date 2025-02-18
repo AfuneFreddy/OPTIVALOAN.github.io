@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('loan-form');
+    
     form.addEventListener('submit', async (event) => {
         event.preventDefault();  // Prevent default form submission
 
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitButton.innerText = "Submitting...";
 
         const formData = new FormData(form);
-        
+
         try {
             // Send data to the backend using fetch
             const response = await fetch(form.action, {
@@ -28,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Show a success message before redirect
                 alert('Loan application received successfully.');
-                
-                // Redirect to a new page
-                window.location.href = "/thank-you.html";  // Replace with your desired URL
+
+                // Redirect to the thank-you page
+                window.location.assign('/thank-you.html');  // Replace with your actual path if needed
             } else {
-                // Show error message
+                // Show error message if status is not success
                 alert('Error: ' + result.message);
             }
         } catch (error) {
