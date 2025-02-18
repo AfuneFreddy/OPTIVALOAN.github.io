@@ -91,24 +91,28 @@
 
     <!-- Custom JS -->
     <script>
-        const form = document.getElementById('loan-form');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
+    const form = document.getElementById('loan-form');
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: formData,
-            });
-
-            const result = await response.json();
-            if (result.status === 'success') {
-                alert('STK Push sent successfully. Check your phone to complete the transaction.');
-            } else {
-                alert('Error: ' + result.message);
-            }
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
         });
-    </script>
+
+        const result = await response.json();
+        if (result.status === 'success') {
+            // Show success alert
+            alert('STK Push sent successfully. Check your phone to complete the transaction.');
+            
+            // Redirect to thank-you page
+            window.location.href = '/thank-you.html';  // Ensure the correct path to the thank-you page
+        } else {
+            alert('Error: ' + result.message);
+        }
+    });
+</script>
 </body>
 
 </html>
