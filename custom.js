@@ -1,49 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('loan-form');
-    
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();  // Prevent default form submission
+    console.log("✅ JavaScript Loaded Successfully!");
 
-        // Show loading state (optional)
-        const submitButton = form.querySelector('.btn-submit');
-        submitButton.disabled = true;
-        submitButton.innerText = "Submitting...";
+    const termsLink = document.getElementById('terms-link');
+    const privacyLink = document.getElementById('privacy-link');
+    const termsContent = document.getElementById('terms-content');
+    const privacyContent = document.getElementById('privacy-content');
+    const form = document.getElementById('loan-form');
+
+    if (!form) {
+        console.error("❌ ERROR: Form not found! Check if ID is correct.");
+        return;
+    }
+
+    // ✅ Toggle Terms & Conditions
+    if (termsLink) {
+        termsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            termsContent.style.display = termsContent.style.display === 'block' ? 'none' : 'block';
+            privacyContent.style.display = 'none';
+        });
+    }
+
+    // ✅ Toggle Privacy Policy
+    if (privacyLink) {
+        privacyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            privacyContent.style.display = privacyContent.style.display === 'block' ? 'none' : 'block';
+            termsContent.style.display = 'none';
+        });
+    }
+
+    // ✅ Handle Form Submission with AJAX & Redirect
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault(); // Stop default form submission
 
         const formData = new FormData(form);
 
         try {
-            // Send data to the backend using fetch
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: formData,
-                headers: {
-                    'Accept': 'application/json', // Tells server to return JSON response
-                }
+            const response = await fetch("http://127.0.0.1:5000/loan-application/save", {
+                method: "POST",
+                body: formData
             });
 
-            const result = await response.json();  // Parse JSON response
+            const result = await response.json();
 
-            if (result.status === 'success') {
-                // Log for debugging
-                console.log("Success: ", result.message);
-                
-                // Show a success message before redirect
-                alert('Loan application received successfully.');
-
-                // Redirect to the thank-you page
-                window.location.assign('/thank-you.html');  // Replace with your actual path if needed
+            if (result.status === "success") {
+                window.location.href = "thank-you.html"; // ✅ Redirect on success
             } else {
-                // Show error message if status is not success
-                alert('Error: ' + result.message);
+                alert("⚠️ " + result.message); // Show error message
             }
         } catch (error) {
-            // Handle network or other errors
-            console.error('Error during form submission:', error);
-            alert('Something went wrong. Please try again.');
-        } finally {
-            // Reset the button after request
-            submitButton.disabled = false;
-            submitButton.innerText = "Find Your Loan Eligibility";
+            console.error("❌ Error submitting form:", error);
+            alert("⚠️ An error occurred. Please try again.");
         }
     });
 });
