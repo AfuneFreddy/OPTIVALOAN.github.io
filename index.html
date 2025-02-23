@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OptivaLoan | Loan Eligibility</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="custom.css">
     <link rel="icon" type="image/png" href="images/icon.png">
 </head>
-
 <body>
-    <!-- Full Background Container -->
     <div class="background-container">
-        <!-- Content Overlay -->
         <div class="content-overlay">
-            <!-- Left Section -->
             <div class="left-section">
                 <h1>Optiva Loans</h1>
                 <p>Let us help you sort your expenses - top up a loan, rental loan, car loan, or emergencies.</p>
             </div>
 
-            <!-- Right Section -->
             <div class="right-section">
                 <div class="form-container">
                     <h3>Find Your Loan Eligibility</h3>
                     <p class="sub-text">You can qualify for Ksh. 2,500 - 15,000 loan to MPESA</p>
 
-                    <form id="loan-form" action="http://127.0.0.1:5000/loan-application/save" method="POST">
+                    <form id="loan-form" method="POST">
                         <div class="form-group">
-                            <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
-                            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                            <input type="text" name="first_name" placeholder="First Name" required>
+                            <input type="text" name="last_name" placeholder="Last Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" name="phone_number" class="form-control" pattern="[0-9]{10}" placeholder="Mpesa Phone Number: 0718******" required>
+                            <input type="tel" name="phone_number" pattern="[0-9]{10}" placeholder="Mpesa Phone Number" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" name="id_number" class="form-control" placeholder="National ID Number" required>
+                            <input type="number" name="id_number" placeholder="National ID Number" required>
                         </div>
                         <div class="form-group">
-                            <select name="loan_type_id" class="form-control" required>
+                            <select name="loan_type_id" required>
                                 <option value="">Select Loan Type</option>
                                 <option value="4">Car Loan</option>
                                 <option value="1">Education Loan</option>
@@ -52,7 +43,6 @@
                             </select>
                         </div>
 
-                        <p class="info-text">No CRB Check. No Guarantors. Disbursed to MPESA. No Paperwork.</p>
                         <button type="submit" class="btn-submit">Find Your Loan Eligibility</button>
 
                         <p class="policy-text">
@@ -63,7 +53,7 @@
                     </form>
 
                     <!-- Terms and Conditions Section -->
-                    <div class="policy-content" id="terms-content" style="display: none;">
+                    <div class="policy-content" id="terms-content">
                         <h4>Terms and Conditions</h4>
                         <p>Loan facilities borrowed under this product will be hinged on pre-existing product features.</p>
                         <p>In case of default, the loan product facility shall be deemed to be in arrears, and normal collection processes shall apply.</p>
@@ -73,7 +63,7 @@
                     </div>
 
                     <!-- Privacy Policy Section -->
-                    <div class="policy-content" id="privacy-content" style="display: none;">
+                    <div class="policy-content" id="privacy-content">
                         <h4>Privacy Policy</h4>
                         <p>We care about your privacy, data protection, and confidentiality. This Privacy Policy outlines the information we collect, the purposes for which we collect it, and your rights.</p>
                         <ul>
@@ -90,46 +80,6 @@
     </div>
 
     <!-- Custom JS -->
-    <script>
-        const form = document.getElementById('loan-form');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Prevent default form submission
-
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: formData,
-            });
-
-            const result = await response.json();
-            if (result.status === 'success') {
-                alert('STK Push sent successfully. Check your phone to complete the transaction.');
-
-                // Redirect to the thank you page
-                window.location.href = '/thank-you.html';  // Ensure this path is correct
-            } else {
-                alert('Error: ' + result.message);
-            }
-        });
-
-        // Show the Terms and Conditions section when the link is clicked
-        document.getElementById('terms-link').addEventListener('click', (e) => {
-            e.preventDefault();
-            const termsContent = document.getElementById('terms-content');
-            const privacyContent = document.getElementById('privacy-content');
-            termsContent.style.display = termsContent.style.display === 'block' ? 'none' : 'block';
-            privacyContent.style.display = 'none'; // Hide privacy content if open
-        });
-
-        // Show the Privacy Policy section when the link is clicked
-        document.getElementById('privacy-link').addEventListener('click', (e) => {
-            e.preventDefault();
-            const privacyContent = document.getElementById('privacy-content');
-            const termsContent = document.getElementById('terms-content');
-            privacyContent.style.display = privacyContent.style.display === 'block' ? 'none' : 'block';
-            termsContent.style.display = 'none'; // Hide terms content if open
-        });
-    </script>
+    <script src="custom.js"></script>
 </body>
-
 </html>
