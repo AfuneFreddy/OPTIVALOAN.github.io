@@ -2,9 +2,10 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Times New Roman', Times, serif !important;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Fullscreen Background Image */
@@ -71,18 +72,12 @@ body, html {
     margin-bottom: 10px;
 }
 
-.form-container p.sub-text {
-    font-size: 0.9rem;
-    color: #6c757d;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .form-group {
     margin-bottom: 15px;
 }
 
-.form-group input, .form-group select {
+.form-group input,
+.form-group select {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
@@ -91,7 +86,8 @@ body, html {
     box-sizing: border-box;
 }
 
-.form-group input:focus, .form-group select:focus {
+.form-group input:focus,
+.form-group select:focus {
     outline: none;
     border-color: #175f73;
     box-shadow: 0 0 5px rgba(23, 95, 115, 0.5);
@@ -113,6 +109,7 @@ body, html {
     background-color: #0f4d61;
 }
 
+/* Policy Section Styling */
 .policy-text {
     font-size: 0.9rem;
     color: #6c757d;
@@ -120,8 +117,9 @@ body, html {
     margin-top: 15px;
 }
 
+/* ✅ Changed Terms & Privacy Links to Blue */
 .policy-text a {
-    color: #175f73;
+    color: blue !important;
     text-decoration: none;
 }
 
@@ -129,7 +127,7 @@ body, html {
     text-decoration: underline;
 }
 
-/* Hidden Policy Content */
+/* Enable Scrolling in Terms & Privacy */
 .policy-content {
     display: none;
     margin-top: 20px;
@@ -137,6 +135,22 @@ body, html {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Scrollbar Styling */
+.policy-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.policy-content::-webkit-scrollbar-thumb {
+    background-color: #175f73;
+    border-radius: 5px;
+}
+
+.policy-content::-webkit-scrollbar-track {
+    background: #ddd;
 }
 
 /* Responsive Design */
