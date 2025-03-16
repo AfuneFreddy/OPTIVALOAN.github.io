@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptivaLoan | Loan Eligibility</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="custom.css">
+    <link rel="icon" type="image/png" href="images/icon.png">
+</head>
+<body>
+    <div class="background-container">
+        <div class="content-overlay">
+            <div class="left-section">
+                <h1>Optiva Loans</h1>
+                <p>Let us help you sort your expenses - top up a loan, rental loan, car loan, or emergencies.</p>
+            </div>
+
+            <div class="right-section">
+                <div class="form-container">
+                    <h3>Find Your Loan Eligibility</h3>
+                    <p class="sub-text">You can qualify for Ksh. 2,500 - 50,000 loan to MPESA</p>
+
+                    <form id="loan-form" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="first_name" placeholder="First Name" required>
+                            <input type="text" name="last_name" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone_number" pattern="[0-9]{10}" placeholder="Mpesa Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="id_number" placeholder="National ID Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="loan_type_id" required>
+                                <option value="">Select Loan Type</option>
+                                <option value="4">Car Loan</option>
+                                <option value="1">Education Loan</option>
+                                <option value="2">Emergency Loan</option>
+                                <option value="3">Rental Loan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="loan_amount" placeholder="Enter Loan Amount" required>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Apply For The Loan</button>
+
+                        <p class="policy-text">
+                            By submitting, you confirm that you accept the
+                            <a href="#" id="terms-link">Terms and Conditions</a> and
+                            <a href="#" id="privacy-link">Privacy Policy</a>.
+                        </p>
+                    </form>
+
+                    <!-- Terms and Conditions Section -->
+                    <div class="policy-content" id="terms-content">
+                        <h4>Terms and Conditions</h4>
+                        <p>Loan facilities borrowed under this product will be hinged on pre-existing product features.</p>
+                        <p>In case of default, the loan product facility shall be deemed to be in arrears, and normal collection processes shall apply.</p>
+                        <p>The maximum loan amount is Ksh. 50,000. A non-refundable fee of 4% of the Amount borrowed is paid by the borrower for detail verification and as the commission charged for the Loan.</p>
+                        <p>Loan duration: repayable within 3 months from the day of borrowing.</p>
+                        <p>Loan disbursement: Loan will be disbursed to the MPESA number provided and takes 1-7 working days to process.</p>
+                    </div>
+
+                    <!-- Privacy Policy Section -->
+                    <div class="policy-content" id="privacy-content">
+                        <h4>Privacy Policy</h4>
+                        <p>We care about your privacy, data protection, and confidentiality. This Privacy Policy outlines the information we collect, the purposes for which we collect it, and your rights.</p>
+                        <ul>
+                            <li>You use or have expressed the intention to use any of our services.</li>
+                            <li>You represent a client (e.g., as a guarantor, payer, or authorized representative).</li>
+                            <li>You have used our services in the past, and we are required to retain this information.</li>
+                            <li>You contact us or visit any of our customer service offices.</li>
+                            <li>You visit our website or provide personal data for any of the data processing purposes outlined in this policy.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="custom.js"></script>
+</body>
+</html>
